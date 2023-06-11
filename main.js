@@ -1,48 +1,12 @@
-Webcam.set({
-    width:350,
-    height:300,
-    image_format: 'png',
-    png_quality:90
-});
+https://teachablemachine.withgoogle.com/models/qGtKWlWzY/
 
-camera = document.getElementById("camera");
-
-Webcam.attach('#camera');
-
-function object_name()
+function startClassification()
 {
-    Webcam.snap(function(data_uri){
-     document.getElementById("result").innerHTML = '<img id="captured_image" src="'+data_uri+'">';
-     
-    });
+    navigator.mediaDevices.getUserMedia({ audio: true});
+    classifier = ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/qGtKWlWzY/model.json',modelReady);
 }
 
-console.log('ml5 version', ml5.version);
-
-classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/-XYIUY12e/model.json',modelLoaded);
-
-function modelLoaded()
+function modelReady()
 {
-    console.log("modelisloaded");
-}
-
-function check()
-{
-    img = document.getElementById('captured_image');
-    classifier.classify(img, gotResult);
-}
-
-function gotResult(error, results)
-{
-    if(error)
-    {
-        console.error(error);
-    }
-    
-    else
-    {
-    console.log(results);
-    document.getElementById("object_name").innerHTML = results[0].label;
-    document.getElementById("object_accuracy").innerHTML = results[0].confidence.toFixed(3);
-    }
+    classifier.classify(gotResults);
 }

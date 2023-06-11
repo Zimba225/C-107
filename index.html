@@ -1,55 +1,54 @@
-<html>
 
-<head>
-    <title>Image recognition</title>
+<html>
+  <head>
+    <title>Sound Identification Web App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+  <body>
+  <center>
 
-    <link rel="stylesheet" href="style.css">
+    <div class="col-xs-12 header_div text-center">
+    <h2>Sound controlled Aliens</h2>
+    <p>Note: Play different sounds like clap, snap, bell to make the aliens dance</p>
+  </div>
+  
+  
+    <div class="main_div"></div>
+    
+      
+        <button class="btn btn-warning" onclick="startClassification();">START</button>
+        <h3 id="result_label">I can Hear - </h3>
+        <h4 id="result_confidence">Accuracy - </h4>
+        <br>
+        <img src="aliens-01.png" id="alien1" width="300" height="300">
+        <img src="aliens-02.png" id="alien2" width="300" height="300">
+        <img src="aliens-03.png" id="alien3" width="300" height="300">
+        <img src="aliens-04.png" id="alien4" width="300" height="300">
 
-</head>
-
-<body>
-    <div class="container">
-
-
-            <h3>Face Recognition Web App</h3>
-
-            <br><br>
-
-            <p style="font-size: 22px;">Model is trained to identify the following objects: </p>
-            <br>
-            <br>
-
-            <b class="btn btn-info names">Father</b>
-            <hr>
-            <b class="btn btn-info names">Mother</b>
-            <hr>
-            <b class="btn btn-info names">Me</b>
-            <br>
-            
-            <label>Webcam View - </label>
-
-            <div id="camera"></div>
-
-            <br><br>
-            <div id="result"></div>
-            <br><br>
-            <button onclick="object_name()" class="btn btn-success">Capture Image</button>
-            <br><br>
-            <button onclick="check()" class="btn btn-warning">Identify Image</button>
-            <br><br>
-
-            <p style="font-size: 22px;">Object : <span id="object_name"></span></p>
-            <p style="font-size: 22px;">Accuracy : <span id="object_accuracy"></span></p>
-
+  
     </div>
-    <script src="main.js"></script>
+    <div class="copy_right_footer">
+      Developed by - Raoo Goswami
+    </div>
+  </center>
+<script src="main.js"></script>
 
-</body>
 
+  </body>
 </html>
+
+
+
+
+
+
+
+
+ 
+
